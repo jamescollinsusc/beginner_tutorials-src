@@ -46,6 +46,9 @@ int main(int argc, char **argv)
    */
   ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
 
+  std::string apples;
+  std::cin >> apples;
+
   ros::Rate loop_rate(10);
 
   /**
@@ -61,7 +64,7 @@ int main(int argc, char **argv)
     std_msgs::String msg;
 
     std::stringstream ss;
-    ss << "hello world " << count;
+    ss << apples << count;
     msg.data = ss.str();
 
     ROS_INFO("%s", msg.data.c_str());
