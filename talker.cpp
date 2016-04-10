@@ -1,6 +1,6 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
-
+#include <string>
 #include <sstream>
 
 /**
@@ -62,9 +62,12 @@ int main(int argc, char **argv)
      * This is a message object. You stuff it with data, and then publish it.
      */
     std_msgs::String msg;
+    int hella = apples.length();
+    int ungh = 1+(count%hella);
+    std::string woops = apples.substr(0, ungh);
 
     std::stringstream ss;
-    ss << apples << count;
+    ss << woops;
     msg.data = ss.str();
 
     ROS_INFO("%s", msg.data.c_str());
